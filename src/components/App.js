@@ -7,6 +7,7 @@ import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "./FormulaDisplay";
 import OutputDisplay from "./OutputDisplay"
+import ButtonPanel from "./ButtonPanel"
 
 class App extends Component {
   render() {
@@ -208,17 +209,6 @@ class CalculatorApp extends React.Component {
         );
     }
 }
-
-const ButtonPanel = (props) => {
-    return(
-        <div className="buttons">
-            {props.children}
-        </div>
-    );
-}
-ButtonPanel.propTypes = {
-    children: PropTypes.arrayOf(PropTypes.element).isRequired
-};
 
 const Button = ({id, type, text, handleButtonClick}) => {
     let btnClasses = type;
