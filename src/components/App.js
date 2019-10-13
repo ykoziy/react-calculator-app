@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
+import Header from "Header";
+
 const MAX_DIGITS = 16;
 
 const getLength = (item) => {
@@ -218,17 +220,6 @@ class CalculatorApp extends React.Component {
         );
     }
 }
-
-const Header = ({handleViewHistoryClick}) => {
-    return(
-        <div className="header">
-            <button className="history-button" onClick={handleViewHistoryClick}><i className="fas fa-history fa-lg"></i></button>
-        </div>
-    );
-}
-Header.propTypes = {
-    handleViewHistoryClick: PropTypes.func.isRequired
-};
 
 const History = ({history, handleHistoryDelete, handleHistoryClick}) => {
     let listItems = <h5>There's no history yet</h5>;
