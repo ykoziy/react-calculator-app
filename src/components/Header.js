@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
 const Header = ({handleViewHistoryClick}) => {
     return(
@@ -7,7 +8,6 @@ const Header = ({handleViewHistoryClick}) => {
         </div>
     );
 }
-
 Header.propTypes = {
     handleViewHistoryClick: PropTypes.func.isRequired
 };

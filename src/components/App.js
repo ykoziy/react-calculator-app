@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
-import Header from "Header";
+import Header from "./Header";
+import History from "./History";
 
 const MAX_DIGITS = 16;
 
@@ -221,68 +222,7 @@ class CalculatorApp extends React.Component {
     }
 }
 
-const History = ({history, handleHistoryDelete, handleHistoryClick}) => {
-    let listItems = <h5>There's no history yet</h5>;
-    if(history.length > 0) {
-        listItems = history.map((i, idx) => {
-            return <HistoryItem key={"hist-"+idx} expression={i.expression} result={i.result} handleHistoryClick={handleHistoryClick}/>;
-        });
-    }
-    return(
-        <div className="history">
-            <HistoryBody>
-                {listItems}
-            </HistoryBody>
-            <HistoryFooter history={history} handleHistoryDelete={handleHistoryDelete}/>
-        </div>
-    );
-}
-History.propTypes = {
-    history: PropTypes.array.isRequired,
-    handleHistoryDelete: PropTypes.func.isRequired,
-    handleHistoryClick: PropTypes.func.isRequired
-};
 
-const HistoryBody = (props) => {
-    return(
-        <div className="history-body">
-            {props.children}
-        </div>
-    );
-}
-HistoryBody.propTypes = {
-    children: PropTypes.node.isRequired
-};
-
-const HistoryItem = ({expression, result, handleHistoryClick}) => {
-    return (
-        <div className="history-item" onClick={handleHistoryClick}>
-            <div className="history-item-expression">
-                {expression}
-            </div>
-            <div className="history-item-result">
-                {result}
-            </div>
-        </div>
-    );
-}
-HistoryItem.propTypes = {
-    expression: PropTypes.string.isRequired,
-    result: PropTypes.string.isRequired,
-    handleHistoryClick: PropTypes.func.isRequired
-};
-
-const HistoryFooter = ({history, handleHistoryDelete}) => {
-    return (
-        <div className="history-footer">
-            {(history.length > 0) && <button className="history-button" onClick={handleHistoryDelete}><i className="far fa-trash-alt fa-lg"></i></button>}
-        </div>
-    );
-}
-HistoryFooter.propTypes = {
-    history: PropTypes.array.isRequired,
-    handleHistoryDelete: PropTypes.func.isRequired
-};
 const OutputScreen = (props) => {
     return(
         <div id="result" className="output">
