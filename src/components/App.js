@@ -1,28 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
+import { getLength, isDigitAddable } from "../utils"
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "./FormulaDisplay";
 import OutputDisplay from "./OutputDisplay"
-
-const MAX_DIGITS = 16;
-
-const getLength = (item) => {
-    const re = /\d/g;
-    return ((item || "").match(re) || []).length;
-}
-
-const isDigitAddable = (digit, output) => {
-    if((digit === "0" && output === "")) {
-        return false;
-    }
-    if(getLength(output) === MAX_DIGITS) {
-        return false;
-    }
-    return true;
-}
 
 class App extends Component {
   render() {
@@ -224,10 +208,6 @@ class CalculatorApp extends React.Component {
         );
     }
 }
-
-
-
-
 
 const ButtonPanel = (props) => {
     return(
