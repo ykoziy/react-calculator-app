@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
-import { getLength, isDigitAddable } from "../utils"
+import { isDigitAddable } from "../utils"
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
