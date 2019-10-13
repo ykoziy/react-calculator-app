@@ -1,0 +1,231 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide|Open+Sans&display=swap);
+
+$gradient-color-stops: rgba(211,249,245,1) 0%, rgba(255,255,255,1) 100%;
+
+@mixin linear-gradient($direction, $color-stops) {
+  background: nth($color-stops, 1);
+  background: linear-gradient($direction, $color-stops);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@mixin non-digit-button {
+  background-color: #d9d9df
+}
+
+@mixin digit-button {
+  text-decoration: none;
+  border: 0.5px solid #848484;
+  outline: none;
+  cursor: pointer;
+  background-color: #f2f2f4;
+}
+
+@mixin calc-bg-color {
+  background-color: #e6e6e6;
+}
+
+@mixin overall-font {
+  font-family:sans-serif;
+}
+
+@mixin output-display-font {
+  font-size: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+@mixin history-item-font {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+@mixin button-font {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Audiowide', cursive;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  @include linear-gradient(to top, $gradient-color-stops);
+  @include overall-font;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator {
+  @include calc-bg-color;
+  min-width: 314px;
+  width: 314px;
+  display: grid;
+  grid-gap: 5px;
+  padding: 5px;
+  grid-template-areas:
+    "header"
+    "output"
+    "input-area";
+  grid-template-rows: auto auto 275px;
+  box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
+}
+
+.header {
+  grid-area: header;
+  color: black;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.output {
+  grid-area: output;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+.output > div {
+  @include output-display-font;
+  display: flex;
+  justify-content: flex-end;
+  word-break: break-all;
+  text-align: right;
+  line-height: 30px;
+  min-height: 30px;
+  padding: 2px;
+}
+
+.buttons {
+  grid-area: input-area;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 0.2rem;
+}
+
+#zero {
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+
+#decimal {
+  grid-area: 5 / 3 / span 1 / span 1;
+}
+
+#equals {
+  grid-area: 4 / 4 / span 2 / span 1;
+}
+
+#add {
+  grid-area: 2 / 4 / span 2 / span 1;
+}
+
+#subtract {
+  grid-area: 1 / 4 / span 1 / span 1;
+}
+
+.history {
+  grid-area: input-area;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #f2f2f4;
+}
+
+.history-button {
+  text-decoration: none;
+  background-color: Transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+  &:hover {
+    background-color: rgba(119, 118, 118, 0.15);
+    border: 0.5px solid #848484;
+  }
+}
+
+.history-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: flex-start;
+  h5 {
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 5px;
+  }
+}
+
+.history-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.history-item {
+  @include history-item-font;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  word-break: break-all;
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+  &:hover {
+    background-color: lightgray;
+  }
+  .history-item-result {
+    font-weight: bold;
+  }
+}
+
+/* buttons styles */
+.btn {
+  @include digit-button;
+  @include button-font;
+  &:hover {
+    background-color: #afafaf;
+  }
+  &:active {
+    background-color: #bebebe;
+  }
+}
+
+.digit {
+  @include digit-button;
+}
+.clear-all {
+  @include non-digit-button;
+}
+.decimal {
+  @include non-digit-button;
+}
+
+.operation {
+  @include non-digit-button;
+  &:hover {
+    background-color: #40b3d2;
+    border-color: #4592a8;
+  }
+  &:active {
+    background-color: #baf0ff;
+    color: #fff;
+  }
+}
