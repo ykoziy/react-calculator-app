@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
+import FormulaDisplay from "./FormulaDisplay";
 
 const MAX_DIGITS = 16;
 
@@ -224,16 +225,6 @@ class CalculatorApp extends React.Component {
 }
 
 
-
-
-const FormulaDisplay = (props) => {
-    return(
-        <div id="history-display">{props.formula}</div>
-    );
-}
-FormulaDisplay.propTypes = {
-    formula: PropTypes.string.isRequired
-};
 
 const OutputDisplay = (props) => {
     let output  = props.result;
