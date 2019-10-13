@@ -7,7 +7,8 @@ import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "./FormulaDisplay";
 import OutputDisplay from "./OutputDisplay"
-import ButtonPanel from "./ButtonPanel"
+import ButtonPanel from "./ButtonPanel";
+import Button from "./Button"
 
 class App extends Component {
   render() {
@@ -209,24 +210,6 @@ class CalculatorApp extends React.Component {
         );
     }
 }
-
-const Button = ({id, type, text, handleButtonClick}) => {
-    let btnClasses = type;
-    if(btnClasses === undefined) {
-        btnClasses = "btn";
-    } else {
-        btnClasses = "btn " + btnClasses;
-    }
-    return(
-        <button id={id} className={btnClasses} onClick={handleButtonClick}>{text}</button>
-    );
-}
-Button.propTypes = {
-    id: PropTypes.string.isRequired,
-    type: PropTypes.string,
-    text: PropTypes.string.isRequired,
-    handleButtonClick: PropTypes.func.isRequired
-};
 
 const calculatorButtons = [
     {
