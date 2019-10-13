@@ -1,4 +1,4 @@
-export const MAX_DIGITS = 16;
+import { MAX_DIGITS } from "../constants/calculatorData"
 
 const getLength = (item) => {
     const re = /\d/g;

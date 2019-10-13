@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
 import { isDigitAddable } from "../utils"
+import { calculatorButtons } from "../constants/calculatorData"
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
@@ -210,83 +211,5 @@ class CalculatorApp extends React.Component {
         );
     }
 }
-
-const calculatorButtons = [
-    {
-        id:"clear",
-        type:"clear-all",
-        text:"AC"
-    },
-    {
-        id:"divide",
-        type:"operation",
-        text:"/"
-    },
-    {
-        id:"multiply",
-        type:"operation",
-        text:"*"
-    },
-    {
-        id:"seven",
-        text:"7"
-    },
-    {
-        id:"eight",
-        text:"8"
-    },
-    {
-        id:"nine",
-        text:"9"
-    },
-    {
-        id:"four",
-        text:"4"
-    },
-    {
-        id:"five",
-        text:"5"
-    },
-    {
-        id:"six",
-        text:"6"
-    },
-    {
-        id:"one",
-        text:"1"
-    },
-    {
-        id:"two",
-        text:"2"
-    },
-    {
-        id:"three",
-        text:"3"
-    },
-    {
-        id:"zero",
-        text:"0"
-    },
-    {
-        id:"subtract",
-        type:"operation",
-        text:"-"
-    },
-    {
-        id:"decimal",
-        type:"decimal",
-        text:"."
-    },
-    {
-        id:"add",
-        type:"operation",
-        text:"+"
-    },
-    {
-        id:"equals",
-        type:"operation equals",
-        text:"="
-    },
-];
 
 export default App;
