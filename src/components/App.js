@@ -5,6 +5,7 @@ import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "./FormulaDisplay";
+import OutputDisplay from "./OutputDisplay"
 
 const MAX_DIGITS = 16;
 
@@ -226,19 +227,7 @@ class CalculatorApp extends React.Component {
 
 
 
-const OutputDisplay = (props) => {
-    let output  = props.result;
-    if(props.result === "")
-    {
-        output = "0"
-    }
-    return(
-        <div id="display">{output}</div>
-    );
-}
-OutputDisplay.propTypes = {
-    result: PropTypes.any.isRequired
-};
+
 
 const ButtonPanel = (props) => {
     return(
