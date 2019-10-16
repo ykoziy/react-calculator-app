@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import {evaluate} from "mathjs";
 
-import { isDigitAddable } from "../utils"
-import { calculatorButtons } from "../constants/calculatorData"
+import { isDigitAddable } from "../utils";
+import { calculatorButtons } from "../constants/calculatorData";
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "./FormulaDisplay";
 import OutputDisplay from "./OutputDisplay"
 import ButtonPanel from "./ButtonPanel";
-import Button from "./Button"
+
 
 class App extends Component {
   render() {
@@ -174,23 +174,7 @@ class CalculatorApp extends React.Component {
     }
 
     render() {
-        let buttons = calculatorButtons.map((i, idx) => {
-            let eventHandler;
-            if(i.type !== undefined) {
-                if(i.type.includes("clear-all")) {
-                    eventHandler = this.handleClearClick;
-                } else if(i.type.includes("equals")) {
-                    eventHandler = this.handleEqualsClick;
-                } else if(i.type === "operation") {
-                    eventHandler = this.handleOperationClick;
-                } else if(i.type === "decimal") {
-                    eventHandler = this.handleDecimalClick;
-                }
-            } else {
-                eventHandler = this.handleNumberClick;
-            }
-            return <Button key={"btn-"+idx} id={i.id} type={i.type} text={i.text} handleButtonClick={eventHandler}/>
-        });
+
 
         return (
           <div id="calculator">
@@ -200,7 +184,7 @@ class CalculatorApp extends React.Component {
                 <OutputDisplay result={this.state.result}/>
             </OutputScreen>
             {this.state.isHistoryView && <History history={this.state.history} handleHistoryClick={this.handleHistoryClick}/>}
-            {!this.state.isHistoryView && <ButtonPanel>{buttons}</ButtonPanel>}
+            {!this.state.isHistoryView && <ButtonPanel/>}
           </div>
         );
     }
