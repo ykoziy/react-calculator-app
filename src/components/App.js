@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Header from "./Header";
+import Header from "../containers/Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "../containers/FormulaDisplay";
