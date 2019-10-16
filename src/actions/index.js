@@ -6,6 +6,7 @@ import {
 } from "../constants/actionTypes.js";
 
 export const clearHistory = () => ({type: CLEAR_HISTORY});
+export const pressDigit = (obj) => ({type: PRESS_DIGIT, obj});
 
 
 
