@@ -10,7 +10,12 @@ import rootReducer from './reducers';
 import * as serviceWorker from './serviceWorker';
 
 const initialState = {
-  history: []
+    formula: "",
+    evaluated: false,
+    previousResult: "",
+    result: "",
+    isHistoryView: false,
+    history: []
 };
 
 const store = createStore(rootReducer, initialState);
