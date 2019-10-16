@@ -22,7 +22,7 @@ export default (state, action) => {
     case TOGGLE_HISTORY_VIEW:
       return {...state, isHistoryView: !state.isHistoryView};
     case SELECT_HISTORY_ITEM:
-      return {...state, ...action.obj};
+      return {...state, ...action.obj, isHistoryView: false, evaluated: true};
     default:
       return state;
   }
