@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {evaluate} from "mathjs";
 
 import { isDigitAddable } from "../utils";
-import { calculatorButtons } from "../constants/calculatorData";
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
