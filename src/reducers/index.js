@@ -10,7 +10,9 @@ export default (state, action) => {
     case CLEAR_HISTORY:
       return {...state, history: []};
     case PRESS_DIGIT:
-      return {...state, ...action.obj}
+      return {...state, ...action.obj};
+    case PRESS_CLEAR:
+      return {...state, ...action.obj};
     default:
       return state;
   }
