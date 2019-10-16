@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import HistoryItem from "../components/HistoryItem";
 import HistoryBody from "../components/HistoryBody";
+import HistoryItem from "./HistoryItem";
 import HistoryFooter from "./HistoryFooter";
 
 const History = ({history}) => {
