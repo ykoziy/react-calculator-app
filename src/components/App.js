@@ -5,8 +5,8 @@ import { isDigitAddable } from "../utils";
 import Header from "./Header";
 import History from "./History";
 import OutputScreen from "./OutputScreen";
-import FormulaDisplay from "./FormulaDisplay";
-import OutputDisplay from "./OutputDisplay"
+import FormulaDisplay from "../containers/FormulaDisplay";
+import OutputDisplay from "../containers/OutputDisplay"
 import ButtonPanel from "./ButtonPanel";
 
 
@@ -179,8 +179,8 @@ class CalculatorApp extends React.Component {
           <div id="calculator">
             <Header handleViewHistoryClick={this.handleViewHistoryClick} />
             <OutputScreen>
-                <FormulaDisplay formula={this.state.formula}/>
-                <OutputDisplay result={this.state.result}/>
+                <FormulaDisplay/>
+                <OutputDisplay/>
             </OutputScreen>
             {this.state.isHistoryView && <History history={this.state.history} handleHistoryClick={this.handleHistoryClick}/>}
             {!this.state.isHistoryView && <ButtonPanel/>}
