@@ -9,6 +9,8 @@ export default (state, action) => {
   switch(action.type) {
     case CLEAR_HISTORY:
       return {...state, history: []};
+    case PRESS_DIGIT:
+      return {...state, ...action.obj}
     default:
       return state;
   }
