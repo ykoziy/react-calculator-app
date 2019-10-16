@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {evaluate} from "mathjs";
 
 import { isDigitAddable } from "../utils"
 import { calculatorButtons } from "../constants/calculatorData"
@@ -138,7 +139,7 @@ class CalculatorApp extends React.Component {
         let {formula} = this.state;
         if(this.state.evaluated === false && formula !== "") {
             formula = formula.replace((/[*+\-/]*$/), "");
-            let result = eval(formula).toString();
+            let result = evaluate(formula).toString();
             let newFormula = formula.concat("=" + result);
             let historyItem = {
                 expression: newFormula,
