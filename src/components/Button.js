@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { pressDigit } from '../actions';
+import { pressDigit, pressClear } from '../actions';
 import { isDigitAddable } from "../utils";
 
 const Button = (props) => {
     const {id, type, text} = props;
-    const {pressDigit} = props;
+    const {pressDigit, pressClear} = props;
     const {formula, result, evaluated, previousResult} = props;
 
     const handleButtonClick = (buttonType, buttonText) => {
@@ -29,7 +29,7 @@ const Button = (props) => {
     };
 
     const handleAC = () => {
-        pressDigit({
+        pressClear({
             formula: "",
             evaluated: false,
             previousResult: "",
@@ -73,6 +73,10 @@ const Button = (props) => {
         });
     };
 
+    const handleOperation = (buttonText) => {
+
+    };
+
     let btnClasses = type;
     if(btnClasses === undefined) {
         btnClasses = "btn";
@@ -101,7 +105,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  pressDigit: (obj) => dispatch(pressDigit(obj))
+    pressDigit: (obj) => dispatch(pressDigit(obj)),
+    pressClear: (obj) => dispatch(pressClear(obj))
 });
 
 export default connect(
