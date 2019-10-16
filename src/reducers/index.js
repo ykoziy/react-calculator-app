@@ -19,6 +19,10 @@ export default (state, action) => {
       return {...state, ...action.obj};
     case PRESS_EQUALS:
       return {...state, ...action.obj};
+    case TOGGLE_HISTORY_VIEW:
+      return {...state, isHistoryView: !state.isHistoryView};
+    case SELECT_HISTORY_ITEM:
+      return {...state, ...action.obj};
     default:
       return state;
   }

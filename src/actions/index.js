@@ -11,3 +11,5 @@ export const pressEquals = (obj) => ({type: PRESS_EQUALS, obj});
 export const pressDecimal = (obj) => ({type: PRESS_DECIMAL, obj});
 export const pressOperation = (obj) => ({type: PRESS_OPERATION, obj});
 export const pressClear = (obj) => ({type: PRESS_CLEAR, obj});
+export const toggleHistoryView = () => ({type: TOGGLE_HISTORY_VIEW});
+export const selectHistoryItem = (obj) => ({type: SELECT_HISTORY_ITEM});
