@@ -1,15 +1,15 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import HistoryItem from "./HistoryItem";
-import HistoryBody from "./HistoryBody";
-import HistoryFooter from "../containers/HistoryFooter";
+import HistoryItem from "../components/HistoryItem";
+import HistoryBody from "../components/HistoryBody";
+import HistoryFooter from "./HistoryFooter";
 
 const History = ({history}) => {
     let listItems = <h5>There's no history yet</h5>;
     if(history.length > 0) {
         listItems = history.map((i, idx) => {
-            return <HistoryItem key={"hist-"+idx}/>;
+            return <HistoryItem key={"hist-"+idx} expression={i.expression} result={i.result}/>;
         });
     }
     return(
