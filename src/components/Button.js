@@ -183,7 +183,7 @@ const mapDispatchToProps = (dispatch) => ({
     pressClear: (obj) => dispatch(pressClear(obj)),
     pressOperation: (obj) => dispatch(pressOperation(obj)),
     pressDecimal: (obj) => dispatch(pressDecimal(obj)),
-    pressEquals: (obj) => dispatch(pressDecimal(pressEquals))
+    pressEquals: (obj) => dispatch(pressEquals(obj))
 });
 
 export default connect(
