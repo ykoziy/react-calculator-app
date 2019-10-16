@@ -1,13 +1,14 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { pressDigit, pressClear, pressOperation } from '../actions';
+import {evaluate} from "mathjs";
+import { pressDigit, pressClear, pressOperation, pressDecimal, pressEquals } from '../actions';
 import { isDigitAddable } from "../utils";
 
 const Button = (props) => {
     const {id, type, text} = props;
-    const {pressDigit, pressClear, pressOperation} = props;
-    const {formula, result, evaluated, previousResult} = props;
+    const {pressDigit, pressClear, pressOperation, pressDecimal, pressEquals} = props;
+    const {formula, result, evaluated, previousResult, history} = props;
 
     const handleButtonClick = (buttonType, buttonText) => {
         switch(buttonType) {
@@ -18,10 +19,13 @@ const Button = (props) => {
                 handleOperation(buttonText);
                 break;
             case 'decimal':
-                console.log('WIP: decimal');
+                handleDecimal(buttonText);
                 break;
             case 'clear-all':
                 handleAC();
+                break;
+            case 'operation equals':
+                handleEquals(buttonText);
                 break;
             default:
                 break;
@@ -35,6 +39,26 @@ const Button = (props) => {
             previousResult: "",
             result: ""
         });
+    };
+
+    const handleEquals = (buttonText) => {
+        if(evaluated === false && formula !== "") {
+            let expression = formula.replace((/[*+\-/]*$/), "");
+            let result = evaluate(expression).toString();
+            let newFormula = expression.concat("=" + result);
+            let historyItem = {
+                expression: newFormula,
+                result: result
+            };
+
+            pressEquals({
+                formula: newFormula,
+                result: result.toString(),
+                previousResult: result.toString(),
+                evaluated: true,
+                history: [historyItem, ...history]
+            });
+        }
     };
 
     const handleDigit = (buttonText) => {
@@ -95,12 +119,36 @@ const Button = (props) => {
         } else {
             newFormula = newFormula.replace(/[*+\-/]{2,}$/,userInput);
         }
-                console.log(newFormula);
+
         pressOperation({
             formula: newFormula,
             result: userInput
         });
     };
+
+    const handleDecimal = (buttonText) => {
+        let userInput = buttonText;
+        if(evaluated === true) {
+            this.setState({
+                formula: "0.",
+                result: "0.",
+                evaluated: false
+            });
+        } else if(!result.includes(".")) {
+            let newFormula = "";
+            if((/[*+\-/]$/).test(formula) || (result === "" && formula === "")) {
+                userInput = "0.";
+                newFormula = formula + "0.";
+            }else {
+                userInput = formula.match(/(\d*)$/)[0] + ".";
+                newFormula = formula + ".";
+            }
+            pressDecimal({
+                formula: newFormula,
+                result: userInput
+            });
+        }
+    }
 
     let btnClasses = type;
     if(btnClasses === undefined) {
@@ -127,12 +175,15 @@ const mapStateToProps = (state) => ({
     result: state.result,
     evaluated: state.evaluated,
     previousResult: state.previousResult,
+    history: state.history
 });
 
 const mapDispatchToProps = (dispatch) => ({
     pressDigit: (obj) => dispatch(pressDigit(obj)),
     pressClear: (obj) => dispatch(pressClear(obj)),
-    pressOperation: (obj) => dispatch(pressOperation(obj))
+    pressOperation: (obj) => dispatch(pressOperation(obj)),
+    pressDecimal: (obj) => dispatch(pressDecimal(obj)),
+    pressEquals: (obj) => dispatch(pressDecimal(pressEquals))
 });
 
 export default connect(

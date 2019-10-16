@@ -15,6 +15,10 @@ export default (state, action) => {
       return {...state, ...action.obj};
     case PRESS_OPERATION:
       return {...state, ...action.obj};
+    case PRESS_DECIMAL:
+      return {...state, ...action.obj};
+    case PRESS_EQUALS:
+      return {...state, ...action.obj};
     default:
       return state;
   }
