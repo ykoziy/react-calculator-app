@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import History from "../components/History";
+import History from "../containers/History";
 import ButtonPanel from "../components/ButtonPanel";
 
 const ControlsView = ({isHistoryView, history}) => {
