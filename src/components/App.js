@@ -62,43 +62,6 @@ class CalculatorApp extends React.Component {
         });
     };
 
-    handleNumberClick = (event) => {
-        let {result, formula} = this.state;
-        const {evaluated} = this.state;
-        let userInput = event.currentTarget.textContent;
-        let newFormula = formula.concat(userInput);
-
-        if(evaluated) {
-            this.setState({
-                formula: userInput !== "0" ? userInput : "",
-                result: userInput === "0" ? "" : userInput,
-                evaluated: false
-            });
-            return;
-        }
-
-        if(!isDigitAddable(userInput, result)) {
-            this.setState({
-                result: result
-            });
-            return;
-        }
-
-        if( (/[*+\-/]0$/).test(formula)) {
-            newFormula = formula.slice(0, -1) + userInput;
-        } else {
-            if(!(/[*+\-/]/).test(result))
-            {
-                userInput = result + userInput;
-            }
-        }
-
-        this.setState({
-            formula: newFormula,
-            result: userInput
-        });
-    };
-
     handleDecimalClick = (event) => {
         let {result, formula} = this.state;
         let userInput = event.currentTarget.textContent;
@@ -123,15 +86,6 @@ class CalculatorApp extends React.Component {
             });
         }
 
-    }
-
-    handleClearClick = (event) => {
-        this.setState({
-            formula: "",
-            evaluated: false,
-            previousResult: "",
-            result: ""
-        });
     }
 
     handleEqualsClick = (event) => {
