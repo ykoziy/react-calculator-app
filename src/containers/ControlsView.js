@@ -5,13 +5,17 @@ import { connect } from 'react-redux';
 import History from "../containers/History";
 import ButtonPanel from "../components/ButtonPanel";
 
-const ControlsView = ({isHistoryView, history}) => {
+const ControlsView = ({isHistoryView}) => {
     return(
         <React.Fragment>
             {isHistoryView ? <History /> : <ButtonPanel />}
         </React.Fragment>
     );
 }
+
+ControlsView.propTypes = {
+    isHistoryView: PropTypes.bool.isRequired
+};
 
 const mapStateToProps = (state) => ({
     isHistoryView: state.isHistoryView
