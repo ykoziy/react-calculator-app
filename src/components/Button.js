@@ -8,6 +8,7 @@ const Button = ({id, type, text, handleButtonClick}) => {
     } else {
         btnClasses = "btn " + btnClasses;
     }
+
     return(
         <button id={id} className={btnClasses} onClick={handleButtonClick}>{text}</button>
     );
@@ -15,8 +16,7 @@ const Button = ({id, type, text, handleButtonClick}) => {
 Button.propTypes = {
     id: PropTypes.string.isRequired,
     type: PropTypes.string,
-    text: PropTypes.string.isRequired,
-    handleButtonClick: PropTypes.func.isRequired
+    text: PropTypes.string.isRequired
 };
 
 export default Button;
