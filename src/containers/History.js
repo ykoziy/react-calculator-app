@@ -9,7 +9,13 @@ const History = ({history}) => {
     let listItems = <h5>There's no history yet</h5>;
     if(history.length > 0) {
         listItems = history.map((i, idx) => {
-            return <HistoryItem key={"hist-"+idx} expression={i.expression} result={i.result}/>;
+            return (
+                <HistoryItem
+                    key={"hist-"+idx}
+                    expression={i.expression}
+                    result={i.result}
+                />
+            );
         });
     }
     return(
