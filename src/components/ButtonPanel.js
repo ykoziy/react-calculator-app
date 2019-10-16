@@ -1,6 +1,6 @@
 import React from "react";
 import { calculatorButtons } from "../constants/calculatorData";
-import Button from "./Button";
+import Button from "../containers/Button";
 
 const ButtonPanel = () => {
     let buttons = calculatorButtons.map((i, idx) => {
