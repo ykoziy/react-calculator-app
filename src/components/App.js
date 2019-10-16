@@ -161,12 +161,6 @@ class CalculatorApp extends React.Component {
         }));
     }
 
-    handleHistoryDelete = (event) => {
-        this.setState({
-            history: []
-        });
-    }
-
     handleHistoryClick = (event) => {
         let expression = event.currentTarget.firstChild.textContent;
         let result = event.currentTarget.lastChild.textContent
@@ -205,7 +199,7 @@ class CalculatorApp extends React.Component {
                 <FormulaDisplay formula={this.state.formula}/>
                 <OutputDisplay result={this.state.result}/>
             </OutputScreen>
-            {this.state.isHistoryView && <History history={this.state.history} handleHistoryDelete={this.handleHistoryDelete} handleHistoryClick={this.handleHistoryClick}/>}
+            {this.state.isHistoryView && <History history={this.state.history} handleHistoryClick={this.handleHistoryClick}/>}
             {!this.state.isHistoryView && <ButtonPanel>{buttons}</ButtonPanel>}
           </div>
         );

@@ -4,7 +4,7 @@ import HistoryItem from "./HistoryItem";
 import HistoryBody from "./HistoryBody";
 import HistoryFooter from "../containers/HistoryFooter";
 
-const History = ({history, handleHistoryDelete, handleHistoryClick}) => {
+const History = ({history, handleHistoryClick}) => {
     let listItems = <h5>There's no history yet</h5>;
     if(history.length > 0) {
         listItems = history.map((i, idx) => {
@@ -16,13 +16,12 @@ const History = ({history, handleHistoryDelete, handleHistoryClick}) => {
             <HistoryBody>
                 {listItems}
             </HistoryBody>
-            <HistoryFooter history={history} handleHistoryDelete={handleHistoryDelete}/>
+            <HistoryFooter/>
         </div>
     );
 }
 History.propTypes = {
     history: PropTypes.array.isRequired,
-    handleHistoryDelete: PropTypes.func.isRequired,
     handleHistoryClick: PropTypes.func.isRequired
 };
 
