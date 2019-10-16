@@ -7,12 +7,12 @@ import { isDigitAddable } from "../utils";
 const Button = (props) => {
     const {id, type, text} = props;
     const {pressDigit} = props;
-    const {formula, result, evaluated} = props;
+    const {formula, result, evaluated, previousResult} = props;
 
-    const handleButtonClick = (event, buttonType, buttonText) => {
+    const handleButtonClick = (buttonType, buttonText) => {
         switch(buttonType) {
             case 'number':
-                handleDigit(event, buttonText);
+                handleDigit(buttonText);
                 break;
             case 'operation':
                 console.log('WIP: operation');
@@ -21,14 +21,23 @@ const Button = (props) => {
                 console.log('WIP: decimal');
                 break;
             case 'clear-all':
-                console.log('WIP: AC');
+                handleAC();
                 break;
             default:
                 break;
         }
     };
 
-    const handleDigit = (event, buttonText) => {
+    const handleAC = () => {
+        pressDigit({
+            formula: "",
+            evaluated: false,
+            previousResult: "",
+            result: ""
+        });
+    };
+
+    const handleDigit = (buttonText) => {
         let userInput = buttonText;
         let newFormula = formula.concat(userInput);
 
@@ -73,10 +82,11 @@ const Button = (props) => {
 
     return(
         <button id={id} className={btnClasses}
-            onClick={event => handleButtonClick(event, type, text)}
+            onClick={() => handleButtonClick(type, text)}
         >{text}</button>
     );
 }
+
 Button.propTypes = {
     id: PropTypes.string.isRequired,
     type: PropTypes.string,
@@ -86,7 +96,8 @@ Button.propTypes = {
 const mapStateToProps = (state) => ({
     formula: state.formula,
     result: state.result,
-    evaluated: state.evaluated
+    evaluated: state.evaluated,
+    previousResult: state.previousResult,
 });
 
 const mapDispatchToProps = (dispatch) => ({
