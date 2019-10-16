@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 
 import Header from "../containers/Header";
-import History from "./History";
 import OutputScreen from "./OutputScreen";
 import FormulaDisplay from "../containers/FormulaDisplay";
-import OutputDisplay from "../containers/OutputDisplay"
-import ButtonPanel from "./ButtonPanel";
-
+import OutputDisplay from "../containers/OutputDisplay";
+import ControlsView from "../containers/ControlsView";
 
 class App extends Component {
   render() {
@@ -29,12 +27,6 @@ class CalculatorApp extends React.Component {
         };
     }
 
-    handleViewHistoryClick = (event) => {
-        this.setState(prevState => ({
-            isHistoryView: !prevState.isHistoryView
-        }));
-    }
-
     handleHistoryClick = (event) => {
         let expression = event.currentTarget.firstChild.textContent;
         let result = event.currentTarget.lastChild.textContent
@@ -48,17 +40,14 @@ class CalculatorApp extends React.Component {
     }
 
     render() {
-
-
         return (
           <div id="calculator">
-            <Header handleViewHistoryClick={this.handleViewHistoryClick} />
+            <Header />
             <OutputScreen>
-                <FormulaDisplay/>
-                <OutputDisplay/>
+                <FormulaDisplay />
+                <OutputDisplay />
             </OutputScreen>
-            {this.state.isHistoryView && <History history={this.state.history} handleHistoryClick={this.handleHistoryClick}/>}
-            {!this.state.isHistoryView && <ButtonPanel/>}
+            <ControlsView />
           </div>
         );
     }
