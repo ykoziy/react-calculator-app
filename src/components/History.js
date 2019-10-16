@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import HistoryItem from "./HistoryItem";
 import HistoryBody from "./HistoryBody";
-import HistoryFooter from "./HistoryFooter";
+import HistoryFooter from "../containers/HistoryFooter";
 
 const History = ({history, handleHistoryDelete, handleHistoryClick}) => {
     let listItems = <h5>There's no history yet</h5>;
