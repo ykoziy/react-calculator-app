@@ -13,6 +13,8 @@ export default (state, action) => {
       return {...state, ...action.obj};
     case PRESS_CLEAR:
       return {...state, ...action.obj};
+    case PRESS_OPERATION:
+      return {...state, ...action.obj};
     default:
       return state;
   }
