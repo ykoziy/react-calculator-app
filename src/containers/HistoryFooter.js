@@ -6,7 +6,12 @@ import { clearHistory } from '../actions';
 const HistoryFooter = ({history, clearHistory}) => {
     return (
         <div className="history-footer">
-            {(history.length > 0) && <button className="history-button" onClick={clearHistory}><i className="far fa-trash-alt fa-lg"></i></button>}
+            {
+                (history.length > 0) &&
+                <button className="history-button" onClick={clearHistory}>
+                    <i className="far fa-trash-alt fa-lg"></i>
+                </button>
+            }
         </div>
     );
 }
