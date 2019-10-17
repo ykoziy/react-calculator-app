@@ -2,7 +2,7 @@ import React from "react";
 import { calculatorButtons } from "../constants/calculatorData";
 import Button from "../containers/Button";
 
-const ButtonPanel = () => {
+const Keypad = () => {
     let buttons = calculatorButtons.map((i, idx) => {
         return <Button key={"btn-"+idx} id={i.id} type={i.type} text={i.text} />
     });
@@ -13,4 +13,4 @@ const ButtonPanel = () => {
     );
 }
 
-export default ButtonPanel;
+export default Keypad;

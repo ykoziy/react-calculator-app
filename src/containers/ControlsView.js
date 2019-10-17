@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import History from "../containers/History";
-import ButtonPanel from "../components/ButtonPanel";
+import Keypad from "../components/Keypad";
 
 const ControlsView = ({isHistoryView}) => {
     return(
         <React.Fragment>
-            {isHistoryView ? <History /> : <ButtonPanel />}
+            {isHistoryView ? <History /> : <Keypad />}
         </React.Fragment>
     );
 }
