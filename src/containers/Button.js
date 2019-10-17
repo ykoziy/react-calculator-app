@@ -166,8 +166,18 @@ const Button = (props) => {
 
 Button.propTypes = {
     id: PropTypes.string.isRequired,
-    type: PropTypes.string,
-    text: PropTypes.string.isRequired
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    formula: PropTypes.string.isRequired,
+    result: PropTypes.string.isRequired,
+    evaluated: PropTypes.bool.isRequired,
+    previousResult: PropTypes.string.isRequired,
+    history: PropTypes.array.isRequired,
+    pressDigit: PropTypes.func.isRequired,
+    pressClear: PropTypes.func.isRequired,
+    pressOperation: PropTypes.func.isRequired,
+    pressDecimal: PropTypes.func.isRequired,
+    pressEquals: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
