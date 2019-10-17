@@ -149,16 +149,9 @@ const Button = (props) => {
             });
         }
     }
-
-    let btnClasses = type;
-    if(btnClasses === undefined) {
-        btnClasses = "btn";
-    } else {
-        btnClasses = "btn " + btnClasses;
-    }
-
+    
     return(
-        <button id={id} className={btnClasses}
+        <button id={id} className={"btn " + type}
             onClick={() => handleButtonClick(type, text)}
         >{text}</button>
     );
