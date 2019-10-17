@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import {evaluate} from "mathjs";
-import { pressDigit, pressClear, pressOperation, pressDecimal, pressEquals } from '../actions';
+import { pressDigit, pressClear, pressOperation, pressEquals } from '../actions';
 import { isDigitAddable } from "../utils";
 
 const Button = (props) => {
@@ -12,14 +12,8 @@ const Button = (props) => {
 
     const handleButtonClick = (buttonType, buttonText) => {
         switch(buttonType) {
-            case 'number':
-                handleDigit(buttonText);
-                break;
             case 'operation':
                 handleOperation(buttonText);
-                break;
-            case 'decimal':
-                handleDecimal(buttonText);
                 break;
             case 'clear-all':
                 handleAC();
@@ -149,7 +143,7 @@ const Button = (props) => {
             });
         }
     }
-    
+
     return(
         <button id={id} className={"btn " + type}
             onClick={() => handleButtonClick(type, text)}
@@ -169,7 +163,6 @@ Button.propTypes = {
     pressDigit: PropTypes.func.isRequired,
     pressClear: PropTypes.func.isRequired,
     pressOperation: PropTypes.func.isRequired,
-    pressDecimal: PropTypes.func.isRequired,
     pressEquals: PropTypes.func.isRequired
 };
 
@@ -185,7 +178,6 @@ const mapDispatchToProps = (dispatch) => ({
     pressDigit: (obj) => dispatch(pressDigit(obj)),
     pressClear: (obj) => dispatch(pressClear(obj)),
     pressOperation: (obj) => dispatch(pressOperation(obj)),
-    pressDecimal: (obj) => dispatch(pressDecimal(obj)),
     pressEquals: (obj) => dispatch(pressEquals(obj))
 });
 
