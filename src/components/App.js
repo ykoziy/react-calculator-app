@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Header from "../containers/Header";
-import OutputScreen from "./OutputScreen";
+import Display from "./Display";
 import FormulaDisplay from "../containers/FormulaDisplay";
 import OutputDisplay from "../containers/OutputDisplay";
 import ControlsView from "../containers/ControlsView";
@@ -17,10 +17,10 @@ class CalculatorApp extends React.Component {
         return (
           <div id="calculator">
             <Header />
-            <OutputScreen>
+            <Display>
                 <FormulaDisplay />
                 <OutputDisplay />
-            </OutputScreen>
+            </Display>
             <ControlsView />
           </div>
         );
