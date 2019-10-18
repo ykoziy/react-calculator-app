@@ -1,6 +1,6 @@
 @import '../abstracts/all';
 
-.output
+.display
 {
   grid-area: output;
   color: black;
@@ -9,7 +9,7 @@
   border-bottom: 1px solid black;
 }
 
-.output > div
+.display > div
 {
   @include style-font(25px, bold, 2px);
   display: flex;
@@ -17,6 +17,6 @@
   word-break: break-all;
   text-align: right;
   line-height: 30px;
-  min-height: 30px;
+  height: 32px;
   padding: 2px;
 }

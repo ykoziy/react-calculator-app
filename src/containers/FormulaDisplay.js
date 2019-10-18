@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const FormulaDisplay = ({formula}) => {
     return(
-        <div id="history-display">{formula}</div>
+        <div className="formula">{formula}</div>
     );
 }
 FormulaDisplay.propTypes = {

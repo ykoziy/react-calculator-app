@@ -9,7 +9,7 @@ const OutputDisplay = ({result}) => {
         output = "0"
     }
     return(
-        <div id="display">{output}</div>
+        <div className="output">{output}</div>
     );
 }
 OutputDisplay.propTypes = {

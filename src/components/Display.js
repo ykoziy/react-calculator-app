@@ -4,7 +4,7 @@ import '../assets/css/components/Display.scss';
 
 const OutputScreen = (props) => {
     return(
-        <div id="result" className="output">
+        <div className="display">
             {props.children}
         </div>
     );
