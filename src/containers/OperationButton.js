@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { pressClear, pressOperation } from '../actions';
-import { isDigitAddable } from "../utils";
 
 const OperationButton = (props) => {
     const {id, type, text} = props;
