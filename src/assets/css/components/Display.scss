@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
   border-bottom: 1px solid black;
+  .formula
+  {
+    overflow-y: auto;
+  }
 }
 
 .display > div
@@ -17,6 +21,7 @@
   word-break: break-all;
   text-align: right;
   line-height: 30px;
-  height: 32px;
+  min-height: 34px;
+  max-height: 68px;
   padding: 2px;
 }
