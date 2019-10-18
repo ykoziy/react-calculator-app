@@ -4,25 +4,6 @@ import DigitButton from "../containers/DigitButton";
 import OperationButton from "../containers/OperationButton";
 import EqualsButton from "../containers/EqualsButton";
 
-const ButtonModule = (idx, id, type, text) => {
-    const digitButton = () => {
-        return <DigitButton key={"btn-"+idx} id={id} type={type} text={text} />
-    }
-    const operationButton = () => {
-        return <OperationButton key={"btn-"+idx} id={id} type={type} text={text} />
-    }
-
-    const equalsButton = () => {
-        return <EqualsButton key={"btn-"+idx} id={id} type={type} text={text} />
-    }
-
-    return {
-        digitButton: digitButton,
-        operationButton: operationButton,
-        equalsButton: equalsButton
-    };
-}
-
 const Keypad = () => {
     let buttons = calculatorButtons.map((item, idx) => {
         let {id, type, text} = item;
@@ -41,6 +22,24 @@ const Keypad = () => {
             {buttons}
         </div>
     );
+}
+
+const ButtonModule = (idx, id, type, text) => {
+    const digitButton = () => {
+        return <DigitButton key={"btn-"+idx} id={id} type={type} text={text} />
+    }
+    const operationButton = () => {
+        return <OperationButton key={"btn-"+idx} id={id} type={type} text={text} />
+    }
+
+    const equalsButton = () => {
+        return <EqualsButton key={"btn-"+idx} id={id} type={type} text={text} />
+    }
+    return {
+        digitButton: digitButton,
+        operationButton: operationButton,
+        equalsButton: equalsButton
+    };
 }
 
 export default Keypad;
