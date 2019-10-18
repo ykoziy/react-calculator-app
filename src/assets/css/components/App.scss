@@ -53,7 +53,7 @@ body
   outline: none;
   cursor: pointer;
   padding: 5px;
-
+  border-top: 0.5px solid transparent;
   &:hover
   {
     background-color: rgba(119, 118, 118, 0.15);
