@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../assets/css/components/History/Main.scss';
 import HistoryBody from "../components/HistoryBody";
 import HistoryItem from "./HistoryItem";
 import HistoryFooter from "./HistoryFooter";

@@ -1,0 +1,50 @@
+@import '../../abstracts/all';
+
+.history
+{
+  grid-area: input-area;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: $secondary-bg-color;
+}
+
+.history-body
+{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow: auto;
+  justify-content: flex-start;
+
+  h5
+  {
+    margin-top: 5px;
+    margin-bottom: 0;
+    margin-left: 5px;
+  }
+}
+
+.history-item
+{
+  @include style-font(20px, null, 2px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  word-break: break-all;
+  text-align: right;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 8px;
+
+  &:hover
+  {
+    background-color: lightgray;
+  }
+
+  .history-item-result
+  {
+    font-weight: bold;
+  }
+}

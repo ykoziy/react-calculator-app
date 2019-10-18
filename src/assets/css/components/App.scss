@@ -1,0 +1,62 @@
+@import '../abstracts/all';
+
+$gradient-color-stops: rgba(211,249,245,1) 0%, rgba(255,255,255,1) 100%;
+
+html,
+body
+{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+*
+{
+  box-sizing: border-box;
+}
+
+body
+{
+  @include linear-gradient(to top, $gradient-color-stops);
+  font-family: $main-font-family;
+}
+
+#app
+{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calculator
+{
+  background-color: $main-bg-color;
+  min-width: 314px;
+  width: 314px;
+  display: grid;
+  grid-gap: 5px;
+  padding: 5px;
+  grid-template-areas:
+    "header"
+    "output"
+    "input-area";
+  grid-template-rows: auto auto 275px;
+  box-shadow: 0 6px 6px -3px rgba(0,0,0,.2), 0 10px 14px 1px rgba(0,0,0,.14), 0 4px 18px 3px rgba(0,0,0,.12);
+}
+
+.history-button
+{
+  text-decoration: none;
+  background-color: Transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+
+  &:hover
+  {
+    background-color: rgba(119, 118, 118, 0.15);
+    border: 0.5px solid #848484;
+  }
+}

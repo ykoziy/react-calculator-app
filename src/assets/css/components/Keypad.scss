@@ -1,0 +1,74 @@
+@import '../abstracts/all';
+
+.buttons
+{
+  grid-area: input-area;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 0.2rem;
+}
+
+#zero
+{
+  grid-area: 5 / 1 / span 1 / span 2;
+}
+
+#decimal
+{
+  grid-area: 5 / 3 / span 1 / span 1;
+}
+
+#equals
+{
+  grid-area: 4 / 4 / span 2 / span 1;
+}
+
+#add
+{
+  grid-area: 2 / 4 / span 2 / span 1;
+}
+
+#subtract
+{
+  grid-area: 1 / 4 / span 1 / span 1;
+}
+
+.btn
+{
+  @include digit-button;
+  font-family: $button-font-family;
+  @include style-font(16px, bold);
+
+  &:hover
+  {
+    background-color: #afafaf;
+  }
+
+  &:active
+  {
+    background-color: #bebebe;
+  }
+}
+
+.clear-all,
+.decimal
+{
+  background-color: $tertiary-bg-color;
+}
+
+.digit {
+  @include digit-button;
+}
+
+.operation {
+  background-color: $tertiary-bg-color;
+  &:hover {
+    background-color: #40b3d2;
+    border-color: #4592a8;
+  }
+  &:active {
+    background-color: #baf0ff;
+    color: #fff;
+  }
+}

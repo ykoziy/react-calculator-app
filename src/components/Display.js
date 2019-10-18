@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
+import '../assets/css/components/Display.scss';
 
 const OutputScreen = (props) => {
     return(

@@ -1,0 +1,15 @@
+.history-button
+{
+  text-decoration: none;
+  background-color: Transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 5px;
+
+  &:hover
+  {
+    background-color: rgba(119, 118, 118, 0.15);
+    border: 0.5px solid #848484;
+  }
+}

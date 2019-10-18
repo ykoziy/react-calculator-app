@@ -1,0 +1,22 @@
+@import '../abstracts/all';
+
+.output
+{
+  grid-area: output;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+}
+
+.output > div
+{
+  @include style-font(25px, bold, 2px);
+  display: flex;
+  justify-content: flex-end;
+  word-break: break-all;
+  text-align: right;
+  line-height: 30px;
+  min-height: 30px;
+  padding: 2px;
+}

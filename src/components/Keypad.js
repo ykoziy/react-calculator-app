@@ -1,4 +1,5 @@
 import React from "react";
+import '../assets/css/components/Keypad.scss';
 import { calculatorButtons } from "../constants/calculatorData";
 import DigitButton from "../containers/DigitButton";
 import OperationButton from "../containers/OperationButton";

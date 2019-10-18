@@ -1,0 +1,25 @@
+@import 'variables';
+
+@mixin linear-gradient($direction, $color-stops)
+{
+  background: nth($color-stops, 1);
+  background: linear-gradient($direction, $color-stops);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@mixin digit-button
+{
+  text-decoration: none;
+  border: 0.5px solid #848484;
+  outline: none;
+  cursor: pointer;
+  background-color: $secondary-bg-color;
+}
+
+@mixin style-font($font-size, $font-weight:normal, $letter-spcing:normal)
+{
+    font-size: $font-size;
+    font-weight: $font-weight;
+    letter-spacing: $letter-spcing;
+}

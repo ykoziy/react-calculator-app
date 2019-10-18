@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import '../assets/css/components/History/Footer.scss';
 import { clearHistory } from '../actions';
 
 const HistoryFooter = ({history, clearHistory}) => {
