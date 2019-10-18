@@ -36,6 +36,16 @@ const EqualsButton = (props) => {
     );
 }
 
+EqualsButton.propTypes = {
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    formula: PropTypes.string.isRequired,
+    evaluated: PropTypes.bool.isRequired,
+    history: PropTypes.array.isRequired,
+    pressEquals: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => ({
     formula: state.formula,
     evaluated: state.evaluated,

@@ -91,6 +91,17 @@ const DigitButton = (props) => {
     );
 }
 
+DigitButton.propTypes = {
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    formula: PropTypes.string.isRequired,
+    evaluated: PropTypes.bool.isRequired,
+    result: PropTypes.string.isRequired,
+    pressDigit: PropTypes.func.isRequired,
+    pressDecimal: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => ({
     formula: state.formula,
     result: state.result,

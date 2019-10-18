@@ -66,6 +66,18 @@ const OperationButton = (props) => {
     );
 }
 
+OperationButton.propTypes = {
+    id: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
+    text: PropTypes.string.isRequired,
+    formula: PropTypes.string.isRequired,
+    evaluated: PropTypes.bool.isRequired,
+    result: PropTypes.string.isRequired,
+    previousResult: PropTypes.string.isRequired,
+    pressClear: PropTypes.func.isRequired,
+    pressOperation: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => ({
     formula: state.formula,
     result: state.result,
