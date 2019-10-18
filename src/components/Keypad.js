@@ -1,8 +1,8 @@
 import React from "react";
 import { calculatorButtons } from "../constants/calculatorData";
-import Button from "../containers/Button";
 import DigitButton from "../containers/DigitButton";
 import OperationButton from "../containers/OperationButton";
+import EqualsButton from "../containers/EqualsButton";
 
 const ButtonModule = (idx, id, type, text) => {
     const digitButton = () => {
@@ -12,9 +12,14 @@ const ButtonModule = (idx, id, type, text) => {
         return <OperationButton key={"btn-"+idx} id={id} type={type} text={text} />
     }
 
+    const equalsButton = () => {
+        return <EqualsButton key={"btn-"+idx} id={id} type={type} text={text} />
+    }
+
     return {
         digitButton: digitButton,
-        operationButton: operationButton
+        operationButton: operationButton,
+        equalsButton: equalsButton
     };
 }
 
@@ -27,7 +32,7 @@ const Keypad = () => {
         } else if (type === 'operation' || type === 'clear-all') {
             return btn.operationButton();
         } else {
-            return <Button key={"btn-"+idx} id={id} type={type} text={text} />
+            return btn.equalsButton();
         }
     });
 
