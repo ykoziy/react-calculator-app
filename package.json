@@ -1,6 +1,6 @@
 {
   "name": "calculator-app",
-  "homepage": "https://yuriykoziy.com/proj/drum-machine-app",
+  "homepage": "https://yuriykoziy.com/proj/calculator-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
