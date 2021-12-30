@@ -1,6 +1,6 @@
 {
   "name": "calculator-app",
-  "homepage": "https://ykoziy.github.io/calculator-app",
+  "homepage": "https://ykoziy.github.io/react-calculator-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
